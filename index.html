@@ -3,159 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clarence Akagu | CNC Machinist</title>
+  <title>Laughing Gear | CNC Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
     body {
-      margin: 0;
       font-family: 'Share Tech Mono', monospace;
-      background-color: #0d0d0d;
-      color: #33ff33;
-      background-image: radial-gradient(circle at center, #111 0%, #000 100%);
+      background-color: #000;
+      color: #0f0;
+      margin: 0;
+      padding: 0;
+      background-image: url("cnc_portfolio/grid-dark.svg");
+      background-size: cover;
     }
-    header, section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
+
     header {
       text-align: center;
-      background: #0f0f0f;
-      border-bottom: 2px solid #33ff33;
+      padding: 2rem;
+      border-bottom: 2px solid #0f0;
     }
-    h1 {
-      font-size: 3rem;
-      color: #33ff33;
-      text-shadow: 0 0 5px #33ff33;
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
     }
-    h2 {
-      color: #00ffcc;
-      border-left: 4px solid #33ff33;
-      padding-left: 0.5rem;
+
+    header h2 {
+      font-size: 1.2rem;
+      margin: 0.5rem 0 0 0;
     }
-    p, li {
-      line-height: 1.6;
-      font-size: 1rem;
+
+    section.gallery {
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      margin-bottom: 0.75rem;
-      background: #1a1a1a;
-      padding: 0.75rem 1rem;
-      border-left: 5px solid #33ff33;
-      box-shadow: inset 0 0 10px #33ff3322;
-      cursor: pointer;
-    }
-    li:hover {
-      background: #222;
-    }
+
     .gallery img {
-      max-width: 100%;
-      margin-bottom: 1rem;
-      border: 2px solid #33ff33;
-      border-radius: 6px;
-      box-shadow: 0 0 15px #33ff3333;
+      width: 300px;
+      border: 2px solid #0f0;
+      border-radius: 8px;
     }
-    a.button {
-      display: inline-block;
-      padding: 12px 24px;
-      background: #33ff33;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
-      box-shadow: 0 0 10px #33ff33aa;
-      transition: all 0.2s ease-in-out;
-    }
-    a.button:hover {
-      background: #00ffcc;
-      box-shadow: 0 0 25px #33ff33;
-    }
-    .bubble {
-      background: #121212;
+
+    footer {
+      text-align: center;
       padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #33ff3311;
-      margin-bottom: 1.5rem;
+      border-top: 1px solid #0f0;
+      font-size: 0.9rem;
     }
-    a {
-      color: #00ffcc;
+
+    .button {
+      background-color: #0f0;
+      color: black;
+      padding: 0.5rem 1rem;
+      margin: 1rem auto;
+      display: block;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .button:hover {
+      background-color: #0c0;
     }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const clickSound = document.getElementById('clickSound');
-      const backgroundAudio = document.getElementById('backgroundAudio');
-      const clickableItems = document.querySelectorAll('li, a.button');
-
-      clickableItems.forEach(item => {
-        item.addEventListener('click', () => {
-          clickSound.currentTime = 0;
-          clickSound.play();
-        });
-      });
-
-      backgroundAudio.volume = 0.25;
-      backgroundAudio.play();
-    });
-  </script>
 </head>
 <body>
+  <audio id="clickSound" src="cnc_portfolio/mechanicalclamp.mp3" preload="auto"></audio>
+  <audio id="backgroundAudio" src="cnc_portfolio/cnc_maschine.mp3" preload="auto" loop></audio>
 
-<audio id="clickSound" src="mechanicalclamp.mp3" preload="auto"></audio>
-<audio id="backgroundAudio" src="cnc_maschine.mp3" preload="auto" loop></audio>
+  <header>
+    <h1>Laughing Gear</h1>
+    <h2>Clarence Akagu | CNC Machinist • Hardware Projects • Tech Tutorials</h2>
+  </header>
 
-<header>
-  <h1>Clarence Akagu</h1>
-  <h2>CNC Machinist | G-Code Enthusiast | Precision Matters</h2>
-</header>
+  <button class="button" onclick="initAudio()">Start Audio & Browse</button>
 
-<section>
-  <h2>About Me</h2>
-  <div class="bubble">
-    <p>I’m a CNC machinist with hands-on experience operating and programming lathes and mills. I specialize in insert changes, tight tolerances, and production floor efficiency.</p>
-  </div>
-</section>
+  <section class="gallery">
+    <img src="cnc_portfolio/IMG_9143.JPG" alt="Machined Part 1" />
+    <img src="cnc_portfolio/lathe.jpg" alt="Lathe Work" />
+    <img src="cnc_portfolio/IMG_9151.png" alt="Hardware Sketch" />
+  </section>
 
-<section>
-  <h2>Skills & Machines</h2>
-  <div class="bubble">
-    <ul>
-      <li>Fanuc / HAAS controllers</li>
-      <li>G-Code programming & editing</li>
-      <li>Fusion 360, Solidworks, MasterCAM</li>
-      <li>Aluminum, stainless steel, CRS, plastics</li>
-      <li>Tight tolerances ±0.001”</li>
-    </ul>
-  </div>
-</section>
+  <footer>
+    <p>⚙️ Under Construction — Follow the grind @ ghostinthemachina.eth</p>
+    <p><a href="https://github.com/eloace/cnc_portfolio" target="_blank" style="color:#0f0;">GitHub Repo</a></p>
+  </footer>
 
-<section class="gallery">
-  <h2>Project Gallery</h2>
-  <img src="images/IMG_9143.JPG" alt="Machined part 1" />
-  <img src="images/lathe.jpg" alt="Setup on lathe" />f
-</section>
+  <script>
+    function initAudio() {
+      const clickSound = document.getElementById('clickSound');
+      const backgroundAudio = document.getElementById('backgroundAudio');
 
-<section>
-  <h2>Resume</h2>
-  <a href="C. Akagu CNC.pdf" class="button" download>Download Resume</a>
-</section>
-
-<section>
-  <h2>Contact</h2>
-  <div class="bubble">
-    <p>Email: <a href="mailto:akaguclarence@gmail.com">akaguclarence@gmail.com</a></p>
-    <p>ENS: <strong>ghostinthemachina.eth</strong></p>
-    <p>GitHub: <a href="https://github.com/eloace" target="_blank">@eloace</a></p>
-  </div>
-</section>
-
+      clickSound.currentTime = 0;
+      clickSound.play();
+      backgroundAudio.volume = 0.25;
+      backgroundAudio.play();
+    }
+  </script>
 </body>
 </html>
