@@ -97,15 +97,17 @@
 
       clickableItems.forEach(item => {
         item.addEventListener('click', () => {
-          clickSound.currentTime = 0;
-          clickSound.play();
+          if (clickSound) {
+            clickSound.currentTime = 0;
+            clickSound.play().catch(() => {});
+          }
         });
       });
 
+      // Try playing background music; if blocked, show button
       backgroundAudio.volume = 0.25;
       backgroundAudio.muted = false;
       backgroundAudio.play().catch(() => {
-        // Autoplay restriction workaround
         const resumeButton = document.createElement('button');
         resumeButton.textContent = 'Enter Site';
         resumeButton.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);padding:1rem 2rem;font-size:1.2rem;background:#33ff33;color:#000;border:none;border-radius:5px;cursor:pointer;z-index:9999;';
@@ -120,6 +122,7 @@
 </head>
 <body>
 
+<!-- Sound Effects -->
 <audio id="clickSound" src="mechanicalclamp.mp3" preload="auto"></audio>
 <audio id="backgroundAudio" src="cnc_maschine.mp3" preload="auto" loop></audio>
 
@@ -150,13 +153,13 @@
 
 <section class="gallery">
   <h2>Project Gallery</h2>
-  <img src="cnc_portfolio/IMG_9143.JPG" alt="Machined part 1" />
-  <img src="cnc_portfolio/lathe.jpg" alt="Setup on lathe" />
+  <img src="images/IMG_9143.JPG" alt="Machined part 1" />
+  <img src="images/lathe.jpg" alt="Setup on lathe" />
 </section>
 
 <section>
   <h2>Resume</h2>
-  <a href="C.%20Akagu%20CNC.pdf" class="button" download>Download Resume</a>
+  <a href="C_Akagu_CNC.pdf" class="button" download>Download Resume</a>
 </section>
 
 <section>
@@ -167,6 +170,10 @@
     <p>GitHub: <a href="https://github.com/eloace" target="_blank">@eloace</a></p>
   </div>
 </section>
+
+</body>
+</html>
+
 
 </body>
 </html>
